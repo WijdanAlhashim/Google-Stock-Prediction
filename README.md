@@ -1,5 +1,5 @@
 # Google Stock Prediction 
-<a href="url">[https://www.kaggle.com/datasets/alejandropaige/student-grades-record](https://www.kaggle.com/datasets/shreenidhihipparagi/google-stock-prediction)</a>
+<a href="url">https://www.kaggle.com/datasets/shreenidhihipparagi/google-stock-prediction</a>
 <p>student names </p>
 <p> Wijdan Alhashim - 443200530 </p>
 <p> Shaden Alturki - 443203057 </p>
