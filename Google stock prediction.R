@@ -63,6 +63,26 @@ dataset= dataset[-Find_outlier,]
 
 #transformation
 
+#Feature selection ,Remove Redundant Features
+# load the library        
+library(mlbench)
+library(caret)
+library(ggplot2)
+library(lattice)
+
+# calculate correlation matrix
+correlationMatrix <- cor(dataset[,3:12])
+
+# summarize the correlation matrix
+print(correlationMatrix)
+
+# find attributes that are highly corrected (ideally >0.75)
+highlyCorrelated <- findCorrelation(correlationMatrix, cutoff=0.5 )
+
+# print indexes of highly correlated attributes
+print(highlyCorrelated)
+
+
 #data before preprocessing
 View(dataset)
 
@@ -81,26 +101,6 @@ View(dataset)
 ##Discretization
 dataset$volume <- ifelse(dataset$volume <= 0.1411, "low",
                          ifelse(dataset$volume <= 0.2141, "mediam","high" ))
-
-
-#Feature selection ,Remove Redundant Features
-# load the library        
-library(mlbench)
-library(caret)
-library(ggplot2)
-library(lattice)
-
-# calculate correlation matrix
-correlationMatrix <- cor(dataset[,3:6],dataset[,8:12])
-
-# summarize the correlation matrix
-print(correlationMatrix)
-
-# find attributes that are highly corrected (ideally >0.75)
-highlyCorrelated <- findCorrelation(correlationMatrix, cutoff=0.3 )
-
-# print indexes of highly correlated attributes
-print(highlyCorrelated)
 
 
 #Feature selection ,Feature selection using Recursive Feature Elimination or RFE
@@ -123,25 +123,6 @@ predictors(results)
 plot(results, type=c("h", "o"))
 
 
-
-#Feature selection ,Remove Redundant Features
-
-# load the library        
-library(mlbench)
-library(caret)
-library(ggplot2)
-library(lattice)
-
-# calculate correlation matrix
-correlationMatrix <- cor(dataset[,3:6],dataset[,8:12])
-
-# summarize the correlation matrix
-print(correlationMatrix)
-
-# find attributes that are highly corrected (ideally >0.75)
-highlyCorrelated <- findCorrelation(correlationMatrix, cutoff=0.5 )
-
-# print indexes of highly correlated attributes
 print(highlyCorrelated)
 
      
